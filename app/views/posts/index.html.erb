@@ -1,0 +1,7 @@
+<h1>All post</h1>
+<ul>
+<%@posts.each do |n|%>
+    <li><%= link_to n.title, post_path(n)%> </li>
+    <br>
+<%end%>
+</ul>

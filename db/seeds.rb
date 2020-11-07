@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Post.destroy_all
+Category.destroy_all
+PostCategory.destroy_all
+
+puts "creating categories"
+3.times do 
+    Category.create(name: Faker::Book.genre)
+end
+
+puts "creating post"
+15.times do
+    Post.create(title: Faker::Games::Overwatch.hero, content: Faker::Games::Overwatch.quote)
+end
+
+puts "creating post_categories"
+15.times do
+    PostCategory.create(post_id: Post.all.sample.id, category_id: Category.all.sample.id)
+end
